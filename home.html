@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form action="{{ url_for("disp")}}" method="POST">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label" >Enter job title</label>
+    <input type="text" class="form-control" name="jobname">
+    </div>
+    <br>
+    <div>
+    	<select class="form-select" name="opt">
+    		<option value="Mumbai">Mumbai</option>
+    		<option value="Pune">Pune</option>
+    		<option value="Delhi">Delhi</option>
+    		<option value="Bangalore">Bangalore</option>
+    	</select>
+    </div>
+    <br>
+  <button type="submit" class="btn btn-dark">Submit</button>
+</form>
+
+
+{% endblock %}

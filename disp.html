@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}
+Results
+{% endblock %}
+
+
+{% block content %}
+
+<img id="picture" src="data:image/jpeg;base64,{{ img_data }}" width="1000" height="700">
+
+<style type="text/css">
+	table {font-family: arial, sans-serif;border-collapse: collapse;width: 100%;}
+	td,th {border:1px solid #dddddd;text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+<table>
+	<tr>
+        {% for col in column_names %}
+        <th>{{col}}</th>
+        {% endfor %}
+    </tr>
+    {% for row in data %}
+    <tr>
+        {% for col, row_ in zip(column_names, row) %}
+        {% if col == link %}
+        <td>
+        	<a href="{{ row_ }}" target="_blank">Link to apply</a>
+        </td>
+        {% else %}
+        <td>{{row_}}</td>
+        {% endif %}
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
